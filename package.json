@@ -1,0 +1,49 @@
+{
+  "name": "robot-cockpid",
+  "version": "1.0.0",
+  "description": "This project is for slrov-educational control",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MysteriousChanger/slrov-robotconsole.git"
+  },
+  "keywords": [
+    "slrov",
+    "robot"
+  ],
+  "author": "Changer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MysteriousChanger/slrov-robotconsole/issues"
+  },
+  "homepage": "https://github.com/MysteriousChanger/slrov-robotconsole#readme", 
+  "dependencies": {
+    "express": "= 3.4.8",
+    "serialport": ">= 1.0.8",
+    "ejs": "~0.8.3",
+    "socket.io": "~1.1.0",
+    "nconf": "",
+    "request": "",
+    "moment": "",
+    "mkdirp": "",
+    "forever-monitor": "",
+    "optimist": "",
+    "lazy": ">= 1.0.11",
+    "sync": "",
+    "os-utils": "",
+    "jquery-file-upload-middleware": "",
+    "bower": "",
+    "crc" : ""
+  },
+  "bundleDependencies": [
+    "express",
+    "socket.io",
+    "serialport"
+  ],
+  "engines": {
+    "node": ">= 0.10.15"
+  }
+}
