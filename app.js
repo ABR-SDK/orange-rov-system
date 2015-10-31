@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 var forever = require('forever-monitor');
-var child = new forever.Monitor('/opt/slrov/cockpit/cockpit.js', {
+var child = new forever.Monitor('/opt/orange/orange-rov-system/cockpit.js', {
     max: 3,
     silent: process.env.NODE_DEBUG === 'false',
     options: [],

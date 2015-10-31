@@ -26,7 +26,7 @@
     var divRect = div.getBoundingClientRect(), ctx, x, i, needle;
     div.style.position = 'absolute';
     // div.style.bottom = '0px';
-    div.style.backgroundImage = '-webkit-radial-gradient(50% 50%, circle cover, rgb(68, 68, 68) 0%, black 100%)';
+//    div.style.backgroundImage = '-webkit-radial-gradient(50% 50%, circle cover, rgb(68, 68, 68) 0%, black 100%)';
     this.visibleWidth = divRect.width * (720 / 120);
     // divRect.width;
     this.canvas = document.createElement('canvas');
@@ -108,6 +108,14 @@
       // compass.canvas.getContext('2d').scale((10),1);
       compass.canvas.style.webkitTransform = 'scale(,1)' + offset + 'px)';
       compass.canvas.style.webkitTransform = 'translateX(' + offset + 'px)';
+	compass.canvas.style.mozTransform = 'scale(,1)' + offset + 'px)';
+      compass.canvas.style.mozTransform = 'translateX(' + offset + 'px)';
+	  compass.canvas.style.oTransform = 'scale(,1)' + offset + 'px)';
+      compass.canvas.style.oTransform = 'translateX(' + offset + 'px)';
+	  compass.canvas.style.msTransform = 'scale(,1)' + offset + 'px)';
+      compass.canvas.style.msTransform = 'translateX(' + offset + 'px)';
+	  compass.canvas.style.transform = 'scale(,1)' + offset + 'px)';
+      compass.canvas.style.transform = 'translateX(' + offset + 'px)';
     });
   };
   window.Cockpit.plugins.push(Compass);
