@@ -5,15 +5,15 @@ set -e
 # compile the device tree files
 /opt/orange/cockpit/linux/update-devicetree-oberlays.sh
 
-# set the openrov startup
-ln -s /opt/openrov/cockpit/linux/openrov.service /etc/init.d/openrov
-chmod +x /opt/openrov/cockpit/linux/openrov.service
-update-rc.d openrov defaults
+# set the orange startup
+ln -s /opt/orange/cockpit/linux/orange.service /etc/init.d/orange
+chmod +x /opt/orange/cockpit/linux/orange.service
+update-rc.d orange defaults
 
-chmod +x /opt/openrov/cockpit/linux/rc.local
+chmod +x /opt/orange/cockpit/linux/rc.local
 
-chown -R rov /opt/openrov/cockpit
-chgrp -R admin /opt/openrov/cockpit
+chown -R orange /opt/orange/cockpit
+chgrp -R admin /opt/orange/cockpit
 
 # setup reset and uart for non black BB
 cp /etc/rc.local /etc/rc.local_orig
@@ -30,7 +30,7 @@ cat > /etc/rc.local << __EOF__
 # bits.
 #
 
-/opt/openrov/cockpit/linux/rc.local
+/opt/orange/cockpit/linux/rc.local
 
 exit 0
 

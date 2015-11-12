@@ -1,12 +1,17 @@
 #!/bin/bash
 set -ex
 #Install Pre-req
-gem install fpm
+if  ! which gem > /dev/null ; then
+    echo "do not exitsts gem"
+    exit 1
+fi
+
+#gem install fpm
 
 
 rm -rf node_modules
 #Install dependencies
-npm install --production --arch=armhf
+npm install --production
 
 VERSION_NUMBER="`cat package.json | grep version | grep -o '[0-9]*\.[0-9]*\.[0-9]\+'`"
 GIT_COMMIT="`git rev-parse --short HEAD`"
@@ -16,7 +21,7 @@ then
   GIT_BRANCH="`git for-each-ref --format='%(objectname) %(refname:short)' refs/heads | grep $GIT_COMMIT | awk '{print $2}'`"
 fi
 
-ARCH=`uname -m`
+ARCH=armhf
 if [ ${ARCH} = "armv7l" ]
 then
   ARCH="armhf"
@@ -36,11 +41,11 @@ else
   PACKAGE_VERSION="${PACKAGE_VERSION}${BUILD_NUMBER}.$GIT_COMMIT"
 fi
 
-rm -rf .git
+#rm -rf .git
 
 #package
 fpm -f -m info@rovhome.com -s dir -t deb -a $ARCH \
-	-n orange-cockpit \
+	-n orange-cockpit2 \
 	-v ${PACKAGE_VERSION} \
   --after-install=./install_lib/openrov-cockpit-afterinstall.sh \
   --before-remove=./install_lib/openrov-cockpit-beforeremove.sh \
