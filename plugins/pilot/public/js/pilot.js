@@ -39,51 +39,105 @@ $(function(){
 		var rov = this;
 		console.log("setup control");
 
-		rov.cockpit.controller.bind('float','mousedown',function() {
+		rov.cockpit.controller.attach('float','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setLift', -1);
 		});
-		rov.cockpit.controller.bind('float','mouseup',function() {
+		rov.cockpit.controller.attach('float','clickUp',function() {
 			rov.cockpit.emit('rovpilot.setLift', 0);
 		});
-		rov.cockpit.controller.bind('ahead','mousedown',function() {
+		rov.cockpit.controller.bind('float','mousedown',function() {
+			rov.cockpit.controller.invoke('float','clickDown');
+		});
+		rov.cockpit.controller.bind('float','mouseup',function() {
+			rov.cockpit.controller.invoke('float','clickUp');
+		});
+
+		rov.cockpit.controller.attach('ahead','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setThrottle', 1);
 		});
-		rov.cockpit.controller.bind('ahead','mouseup',function() {
+		rov.cockpit.controller.attach('ahead','clickUp',function() {
 			rov.cockpit.emit('rovpilot.setThrottle', 0);
 		});
-		rov.cockpit.controller.bind('dive','mousedown',function() {
+		rov.cockpit.controller.bind('ahead','mousedown',function() {
+			rov.cockpit.controller.invoke('ahead','clickDown');
+		});
+		rov.cockpit.controller.bind('ahead','mouseup',function() {
+			rov.cockpit.controller.invoke('ahead','clickUp');
+		});
+		
+		rov.cockpit.controller.attach('dive','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setLift', 1);
 		});
-		rov.cockpit.controller.bind('dive','mouseup',function() {
+		rov.cockpit.controller.attach('dive','clickUp',function() {
 			rov.cockpit.emit('rovpilot.setLift', 0);
 		});
-		rov.cockpit.controller.bind('left','mousedown',function() {
+		rov.cockpit.controller.bind('dive','mousedown',function() {
+			rov.cockpit.controller.invoke('dive','clickDown');
+		});
+		rov.cockpit.controller.bind('dive','mouseup',function() {
+			rov.cockpit.controller.invoke('dive','clickUp');
+		});
+
+		rov.cockpit.controller.attach('left','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setYaw', -1);
 		});
-		rov.cockpit.controller.bind('left','mouseup',function() {
+		rov.cockpit.controller.attach('left','clickUp',function() {
 			rov.cockpit.emit('rovpilot.setYaw', 0);
 		});
-		rov.cockpit.controller.bind('back','mousedown',function() {
+		rov.cockpit.controller.bind('left','mousedown',function() {
+			rov.cockpit.controller.invoke('left','clickDown');
+		});
+		rov.cockpit.controller.bind('left','mouseup',function() {
+			rov.cockpit.controller.invoke('left','clickUp');
+		});
+
+		rov.cockpit.controller.attach('back','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setThrottle', -1);
 		});
-		rov.cockpit.controller.bind('back','mouseup',function() {
+		rov.cockpit.controller.attach('back','clickUp',function() {
 			rov.cockpit.emit('rovpilot.setThrottle', 0);
 		});
-		rov.cockpit.controller.bind('right','mousedown',function() {
+		rov.cockpit.controller.bind('back','mousedown',function() {
+			rov.cockpit.controller.invoke('back','clickDown');
+		});
+		rov.cockpit.controller.bind('back','mouseup',function() {
+			rov.cockpit.controller.invoke('back','clickUp');
+		});
+
+		rov.cockpit.controller.attach('right','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setYaw', 1);
 		});
-		rov.cockpit.controller.bind('right','mouseup',function() {
+		rov.cockpit.controller.attach('right','clickUp',function() {
 			rov.cockpit.emit('rovpilot.setYaw', 0);
 		});
-		rov.cockpit.controller.bind('cameraLeft','click',function() {
+		rov.cockpit.controller.bind('right','mousedown',function() {
+			rov.cockpit.controller.invoke('right','clickDown');
+		});
+		rov.cockpit.controller.bind('right','mouseup',function() {
+			rov.cockpit.controller.invoke('right','clickUp');
+		});
+
+		rov.cockpit.controller.attach('cameraLeft','clickDown',function() {
 			rov.cockpit.emit('rovpilot.adjustCameraTilt', -0.1);
 		});
-		rov.cockpit.controller.bind('cameraRight','click',function() {
+		rov.cockpit.controller.bind('cameraLeft','click',function() {
+			rov.cockpit.controller.invoke('cameraLeft','clickDown');
+		});
+
+		rov.cockpit.controller.attach('cameraRight','clickDown',function() {
 			rov.cockpit.emit('rovpilot.adjustCameraTilt', 0.1);
 		});
-		rov.cockpit.controller.bind('cameraReset','click',function() {
+		rov.cockpit.controller.bind('cameraRight','click',function() {
+			rov.cockpit.controller.invoke('cameraRight','clickDown');
+		});
+
+		rov.cockpit.controller.attach('cameraReset','clickDown',function() {
 			rov.cockpit.emit('rovpilot.setCameraTilt', 0);
 		});
+		rov.cockpit.controller.bind('cameraReset','click',function() {
+			rov.cockpit.controller.invoke('cameraReset','clickDown');
+		});
+
 		rov.cockpit.controller.attach('light','afterSetValue',function(v) {
 			rov.cockpit.emit('rovpilot.adjustLights', parseFloat(v));
 			console.log("light set value:" + parseFloat(v));

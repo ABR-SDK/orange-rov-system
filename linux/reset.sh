@@ -11,15 +11,14 @@ back_to_normal() {
 reset() {
   #prepare gpio
   echo $LINUX_RESET_GPIO > /sys/class/gpio/export
-  echo "out" >/sys/class/gpio/gpio$LINUX_RESET_GPIO/direction 
+  echo "out" >/sys/class/gpio/gpio$LINUX_RESET_GPIO/direction
   #set GPIO1_0 to low
   echo 0 > /sys/class/gpio/gpio$LINUX_RESET_GPIO/value
-  back_to_normal 
+  back_to_normal
 }
 
 #setup required environment variables if not already set
-. /opt/openrov/cockpit/linux/openrov_config.sh
+. /opt/orange/cockpit/linux/openrov_config.sh
 
 echo Initiating arduino reset on pin $LINUX_RESET_GPIO 1>&2
 reset &
-

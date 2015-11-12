@@ -55,7 +55,7 @@ $(document).ready(function(){
         itemWidth : 19.2,
     });
     lightInit($controller, {
-        current : 0.5
+        current : 0.0
     });
     processInit($controller, {
         connection : {

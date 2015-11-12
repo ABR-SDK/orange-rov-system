@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ ! -f /var/run/rov_board ]; then
-    sudo /opt/openrov/cockpit/linux/system-detect.sh
+    sudo /opt/orange/cockpit/linux/system-detect.sh
 fi
 
 export ROV_BOARD=`cat /var/run/rov_board`
@@ -22,5 +22,3 @@ then
     export LINUX_RESET_GPIO=32
     export UPLOAD_REQUIRES_RESET=true
 fi
-
-

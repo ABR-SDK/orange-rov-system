@@ -28,8 +28,8 @@ rm src/*.ino || error_exit "Cleaning excess project files failed. Aborting"
 
 cd $BUILDDIR/src || error_exit "Unable to change to src folder"
 
-cp /opt/openrov/arduino/ArduinoUSBLinker/* $BUILDDIR/src || error_exit "Copying files from the github src folder to the temp folder failed.  Aborting"
-echo staged src in to build folder 1>&2 
+cp /opt/orange/arduino/ArduinoUSBLinker/* $BUILDDIR/src || error_exit "Copying files from the github src folder to the temp folder failed.  Aborting"
+echo staged src in to build folder 1>&2
 
 EXTENSION=`echo $extension | awk '{print tolower($0)}'`
 
