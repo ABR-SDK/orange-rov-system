@@ -21,7 +21,7 @@ then
   GIT_BRANCH="`git for-each-ref --format='%(objectname) %(refname:short)' refs/heads | grep $GIT_COMMIT | awk '{print $2}'`"
 fi
 
-ARCH=armhf
+ARCH=`uname -m`
 if [ ${ARCH} = "armv7l" ]
 then
   ARCH="armhf"

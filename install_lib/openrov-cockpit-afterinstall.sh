@@ -3,7 +3,7 @@ set -x
 set -e
 
 # compile the device tree files
-/opt/orange/cockpit/linux/update-devicetree-oberlays.sh
+#/opt/orange/cockpit/linux/update-devicetree-oberlays.sh
 
 # set the orange startup
 ln -s /opt/orange/cockpit/linux/orange.service /etc/init.d/orange

@@ -22,3 +22,4 @@ reset() {
 
 echo Initiating arduino reset on pin $LINUX_RESET_GPIO 1>&2
 reset &
+exit 0

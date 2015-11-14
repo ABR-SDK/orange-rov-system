@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/opt/node/bin/node
 var fs = require('fs');
 var ledState = [
 	"0,0,0,0",
